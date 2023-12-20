@@ -1,0 +1,100 @@
+-- Таблица "Role"
+CREATE TABLE "Role" 
+(
+    "RoleID" SERIAL PRIMARY KEY,
+    "RoleName" VARCHAR(50) NOT NULL
+);
+
+-- Добавлена таблица "EmployeeStatus"
+CREATE TABLE "EmployeeStatus"
+(
+    "EmployeeStatusID" SERIAL PRIMARY KEY,
+    "StatusName" VARCHAR(50) NOT NULL
+);
+
+-- Таблица "Dish"
+CREATE TABLE "Dish" 
+(
+    "DishID" SERIAL PRIMARY KEY,
+    "DishName" VARCHAR(255) NOT NULL,
+    "Price" DECIMAL(10, 2) NOT NULL
+);
+
+-- Таблица "Users"
+CREATE TABLE "Users" 
+(
+    "UserID" SERIAL PRIMARY KEY,
+    "Username" VARCHAR(255),
+    "RoleID" INT REFERENCES "Role"("RoleID"),
+    "FirstName" VARCHAR(255),
+    "LastName" VARCHAR(255),
+    "EmploymentStatusID" INT REFERENCES "EmployeeStatus"("EmployeeStatusID")
+);
+
+-- Таблица "Shifts"
+CREATE TABLE "Shifts" 
+(
+    "ShiftID" SERIAL PRIMARY KEY,
+    "ShiftDate" DATE,
+    "StartTime" TIME,
+    "EndTime" TIME
+);
+
+-- Таблица "EmployeeShifts"
+CREATE TABLE "EmployeeShifts" 
+(
+    "EmployeeShiftID" SERIAL PRIMARY KEY,
+    "UserID" INT REFERENCES "Users"("UserID"),
+    "ShiftID" INT REFERENCES "Shifts"("ShiftID")
+);
+
+-- Таблица "Tables"
+CREATE TABLE "Tables" 
+(
+    "TableID" SERIAL PRIMARY KEY,
+    "TableNumber" INT
+);
+
+-- Добавлена таблица "OrderStatus"
+CREATE TABLE "OrderStatus"
+(
+    "OrderStatusID" SERIAL PRIMARY KEY,
+    "StatusName" VARCHAR(50) NOT NULL
+);
+
+-- Таблица "Orders"
+CREATE TABLE "Orders" 
+(
+    "OrderID" SERIAL PRIMARY KEY,
+    "TableID" INT REFERENCES "Tables"("TableID"),
+    "UserID" INT REFERENCES "Users"("UserID"),
+    "OrderDate" TIMESTAMP,
+    "OrderStatusID" INT REFERENCES "OrderStatus"("OrderStatusID")
+);
+
+-- Таблица "OrderItems"
+CREATE TABLE "OrderItems" 
+(
+    "OrderItemID" SERIAL PRIMARY KEY,
+    "OrderID" INT REFERENCES "Orders"("OrderID"),
+    "DishID" INT REFERENCES "Dish"("DishID"),
+    "Quantity" INT,
+    "Price" DECIMAL(10, 2)
+);
+
+-- Добавлена таблица "PaymentMethod"
+CREATE TABLE "PaymentMethod"
+(
+    "PaymentMethodID" SERIAL PRIMARY KEY,
+    "MethodName" VARCHAR(50) NOT NULL
+);
+
+-- Таблица "Receipts"
+CREATE TABLE "Receipts" 
+(
+    "ReceiptID" SERIAL PRIMARY KEY,
+    "OrderID" INT REFERENCES "Orders"("OrderID"),
+    "PaymentMethodID" INT REFERENCES "PaymentMethod"("PaymentMethodID"),
+    "PaymentAmount" DECIMAL(10, 2),
+    "ReceiptDate" TIMESTAMP
+);
