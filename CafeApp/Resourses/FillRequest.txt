@@ -1,0 +1,38 @@
+-- Заполнение таблицы "Role"
+INSERT INTO "Role" ("RoleName") VALUES
+    ('Официант'),
+    ('Повар'),
+    ('Администратор');
+
+-- Заполнение таблицы "EmployeeStatus"
+INSERT INTO "EmployeeStatus" ("StatusName") VALUES
+    ('Активен'),
+    ('Уволен');
+
+-- Заполнение таблицы "Dish"
+INSERT INTO "Dish" ("DishName", "Price") VALUES
+    ('Борщ', 5.99),
+    ('Пицца', 8.49);
+
+-- Заполнение таблицы "Users"
+INSERT INTO "Users" ("Username", "RoleID", "FirstName", "LastName", "EmploymentStatusID") VALUES
+    ('1', 1, 'Официант', 'Иванов', 1),
+    ('2', 2, 'Повар', 'Петров', 1),
+	('3', 3, 'Админ', 'Николаев', 1);
+
+-- Заполнение таблицы "Tables"
+INSERT INTO "Tables" ("TableNumber") VALUES
+    (1),
+    (2);
+
+-- Заполнение таблицы "OrderStatus"
+INSERT INTO "OrderStatus" ("StatusName") VALUES
+    ('Принят'),
+    ('Готовится'),
+	('Готов'),
+	('Завершен');
+
+-- Заполнение таблицы "PaymentMethod"
+INSERT INTO "PaymentMethod" ("MethodName") VALUES
+    ('Наличные'),
+    ('Карта');
