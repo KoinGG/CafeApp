@@ -197,6 +197,7 @@ public partial class CafeAppContext : DbContext
             entity.Property(e => e.LastName).HasMaxLength(255);
             entity.Property(e => e.RoleId).HasColumnName("RoleID");
             entity.Property(e => e.Username).HasMaxLength(255);
+            entity.Property(e => e.Password).HasMaxLength(255);
 
             entity.HasOne(d => d.EmploymentStatus).WithMany(p => p.Users)
                 .HasForeignKey(d => d.EmploymentStatusId)

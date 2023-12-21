@@ -2,26 +2,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:CafeApp.Views"
         xmlns:vm="using:CafeApp.ViewModels"
+        x:DataType="vm:AdminWindowVM"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
-        x:Class="CafeApp.Views.MainWindow"
-        x:DataType="vm:MainViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Авторизация"
+        x:Class="CafeApp.Views.AdminWindow"
+        Title="AdminWindow"
         Height="400" Width="400"
 				MinHeight="400" MinWidth="400"
 				MaxHeight="400" MaxWidth="400"
 				Background="#e6e6fa"
-				x:Name="Main"
+				x:Name="Admin"
 				WindowStartupLocation="CenterOwner">
-
-  <Design.DataContext>
-    <vm:MainViewModel />
-  </Design.DataContext>
-
-  <Grid>
-    <TextBlock Text="Main"/>
-  </Grid>
+  
+  Admin
   
 </Window>

@@ -1,0 +1,25 @@
+		#region [Private Fields]
+
+                
+
+        #endregion
+
+        
+
+        #region [Properties]
+
+        
+
+        #region [Commands Declaration]
+
+
+
+        #endregion
+
+        #endregion
+
+        #region [Methods]
+
+        
+
+        #endregion
